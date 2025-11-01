@@ -13,10 +13,6 @@ import { Game } from "/src/game/game.js"
 class Application {
     constructor (){
         this.game = null;
-        this.info = {
-            FPSCount: 0,
-            lastSekondTime: performance.now(),
-        }
         this.appTick = null;
     }
     async initialize(){
@@ -73,17 +69,10 @@ class Application {
         if (UI_MANAGER.isActive) UI_MANAGER.update();
     
         INPUT_MANAGER.update();
-        const currentTime = performance.now();
-        if (currentTime - this.info.lastSekondTime >= 1000) {
-            this.info.fps = this.info.FPSCount
-            this.info.FPSCount = 0;
-            this.info.lastSekondTime = currentTime;
-        }
     }
     doMainDraw = () => {
         if (!this.game) return;
         this.game.draw();
-        this.info.FPSCount++;
         setTimeout(this.doMainDraw,0)
     }
 

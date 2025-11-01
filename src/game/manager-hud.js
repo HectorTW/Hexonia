@@ -1,14 +1,20 @@
 import { RESOURCES_MANAGER } from "/src/main/manager-resources.js"
+import { APPLICATION_MANAGER } from "/src/main/Application.js"
 import { INPUT_MANAGER } from "/src/main/manager-input.js"
 import { UI_MANAGER } from "/src/main/manager-ui.js"
 
 import { WORKER_MANAGER } from "/src/game/manager-worker.js"
 
+import { createInvSlotClass } from "/src/staf/inv-slot.js"
 class HudManager {
     constructor() {
         this.isActive = false;
     }
     initialize(){
+        customElements.define('inv-slot', createInvSlotClass());
+        customElements.define('inv-slot-invisible', createInvSlotClass());
+        customElements.define('inv-slot-transparent', createInvSlotClass());
+
         this.isActive = true;
         this.isHudMenuOpen = false;
         this.slot_size = null;
@@ -17,7 +23,6 @@ class HudManager {
         this.main_HUD_divs = {};
 
         this.resizeWindowSize();
-
 
         this.main_HUD_divs["hud"] = document.createElement("div");
         this.main_HUD_divs["hud_game"] = document.createElement("div");
@@ -93,9 +98,10 @@ class HudManager {
             if (this.isHudMenuOpen) {
                 this.closeHudMenu();
             } else {
-                window.app.game.active = false;
+                INPUT_MANAGER.reset_action_just_pressed("escape")
+                APPLICATION_MANAGER.game.active = false;
                 UI_MANAGER.active = true;
-                UI_MANAGER.openUi("menu_escape");
+                UI_MANAGER.openUi("UiEscape");
             }
         }
 

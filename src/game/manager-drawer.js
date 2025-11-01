@@ -11,6 +11,10 @@ import { ChunkMesh } from "/src/game/ChunkMesh.js"
 export class drawerManager {
     constructor () {}
     initialize(){
+        this.frames_per_second = 0;
+        this.frames_per_second_count = 0;
+        this.last_sekond_time = performance.now();
+
         this.minChunk = null;
         this.minChunkGlobal = null;
 
@@ -41,7 +45,17 @@ export class drawerManager {
     clear(ctx, canvas){
         ctx.clearRect(0, 0, canvas.width, canvas.height);
     }
+    update(){
+        const currentTime = performance.now();
+        if (currentTime - this.last_sekond_time >= 1000) {
+            this.frames_per_second = this.frames_per_second_count
+            this.frames_per_second_count = 0;
+            this.last_sekond_time = currentTime;
+        }
+    }
     draw(){
+        this.frames_per_second_count++;
+
         // draw chunks from receivedChunksList
         for (const chunkName in this.receivedChunksList) {
             const chunkMesh = this.chunkMeshs[chunkName];

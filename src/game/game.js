@@ -28,8 +28,9 @@ export class Game {
         }
         
         if (!this.isActive) return
-        CAMERA_MANAGER.update();
         ACTIONS_MANAGER.update();
+        DRAWER_MANAGER.update();
+        CAMERA_MANAGER.update();
         HUD_MANAGER.update();
 
     }
