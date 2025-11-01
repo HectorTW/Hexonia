@@ -1,12 +1,13 @@
+import { APPLICATION_MANAGER } from "/src/main/Application.js"
 import { UI_MANAGER } from "/src/main/manager-ui.js"
 
 export class UiEscape {
     constructor() {
         this.onClick = {
             "back_to_game_button": () => {
-                window.app.game.active = true;
+                APPLICATION_MANAGER.game.active = true;
                 UI_MANAGER.active = false;
-                UI_MANAGER.openUi(false);
+                UI_MANAGER.closeUi();
             },
             "achievements_menu_button": () => {
                 console.log('Ещё не готово :>> ');
@@ -20,7 +21,7 @@ export class UiEscape {
                 console.log('Ещё не готово :>> ');
             },
             "save_and_quit_button": async () => {
-                await window.app.saveAndQuit()
+                await APPLICATION_MANAGER.saveAndQuit()
             },
         },
         this.buttonsNavigator = {
