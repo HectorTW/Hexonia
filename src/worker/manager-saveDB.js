@@ -95,3 +95,19 @@ export class SaveDataBase {
 }
 
 export const SAVE_DB_MANAGER = new SaveDataBase();
+
+async function clearIndexedDBSimple() {
+    const databases = await window.indexedDB.databases();
+    await Promise.all(
+        databases.map(db => 
+            new Promise((resolve, reject) => {
+                const request = indexedDB.deleteDatabase(db.name);
+                request.onsuccess = resolve;
+                request.onerror = reject;
+            })
+        )
+    );
+}
+// clearIndexedDBSimple()
+//   .then(() => console.log('Очистка завершена'))
+//   .catch(error => console.error('Произошла ошибка:', error));

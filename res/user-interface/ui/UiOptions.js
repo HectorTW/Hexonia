@@ -1,10 +1,12 @@
+import { UI_MANAGER } from "/src/main/manager-ui.js"
+
 export class UiOptions {
     constructor (){
         this.onClick = {
             "back_to_game_button": () => {
                 window.app.game.active = true;
-                window.get("UI_MANAGER").active = false;
-                window.get("UI_MANAGER").openUi(false);
+                UI_MANAGER.active = false;
+                UI_MANAGER.openUi(false);
             },
             "achievements_menu_button": () => {
                 console.log('Ещё не готово :>> ');

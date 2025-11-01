@@ -2,6 +2,7 @@ import { RESOURCES_MANAGER } from "/src/main/manager-resources.js"
 import { SETINGS_MANAGER } from "/src/main/manager-setings.js"
 import { DRAWER_MANAGER } from "/src/game/manager-drawer.js"
 import { UI_MANAGER } from "/src/main/manager-ui.js"
+
 import { WORKER_MANAGER } from "/src/game/manager-worker.js"
 import { INPUT_MANAGER } from "/src/main/manager-input.js"
 import { ID_MANAGER } from "/src/main/manager-id.js"
@@ -9,7 +10,7 @@ import { ID_MANAGER } from "/src/main/manager-id.js"
 import { SaveDataBase } from "/src/worker/manager-saveDB.js"
 import { Game } from "/src/game/game.js"
 
-export class Application {
+class Application {
     constructor (){
         this.game = null;
         this.info = {
@@ -108,23 +109,6 @@ export class Application {
             .filter(obj => obj.name.startsWith("save:"))
             .map(obj => indexedDB.deleteDatabase(obj.name));
     }
-    async getAllWorldsInfo(){
-        const worldsList = (await indexedDB.databases())
-            .filter(obj => obj.name.startsWith("save:"))
-            .map(obj => obj.name);
-        
-        return await Promise.all(
-            worldsList.map(async (dev_world_name) =>  {
-                const DB = new SaveDataBase(dev_world_name);
-                await DB.initDB();
-                return {
-                    "dev-world-name": dev_world_name.slice(5),
-                    "preview": await DB.getItem("info", "preview"),
-                    "creation-date": await DB.getItem("info", "creation-date"),
-                    "user-world-name": await DB.getItem("info", "user-world-name"),
-                    "last-played-date": await DB.getItem("info", "last-played-date"),
-                }
-            })
-        );
-    }
 }
+
+export const APPLICATION_MANAGER = new Application();
