@@ -1,0 +1,17 @@
+<div id="menu_create_new_world" class="center-child">
+    <div class="center-child background">
+        <h1>Create New World</h1>
+        <div id="list">
+            <p>World Name</p>
+            <div id="world_name">
+                <input id="world_name_input" type="text" style="width: calc(min(45.0vh, 45.0vw));">
+            </div>
+            <p>Game Mode</p>
+            <div class="button b-size-2 flex_middle" onclick="window.get("UI_MANAGER").buttonChangeGameMode()">Survival</div>
+        </div>
+        <div class="flex-raw">
+            <div class="button b-size-2 flex_middle" onclick="window.get("UI_MANAGER").buttonCreateNewWorld()">Create New World</div>
+            <div class="button b-size-2 flex_middle" onclick="window.get("UI_MANAGER").buttonopenUiSinglePlayer()">Cancel</div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+{
+    "UiCreateNewWorld": "res/user-interface/ui/ui-create-new-world.html",
+    "UiEscape": "res/user-interface/ui/ui-escape.html",
+    "UiOptions": "res/user-interface/ui/ui-options.html",
+    "UiSinglePlayer": "res/user-interface/ui/ui-single-player.html",
+    "UiStart": "res/user-interface/ui/ui-start.html",
+
+    "HudDebug": "res/user-interface/hud/hud-debug.html",
+    "HudNotEnoughItems": "res/user-interface/hud/hud-not-enough-items.html",
+    "HudPlayerInventory": "res/user-interface/hud/hud-player-inventory.html",
+    "HudPlayerToolbar": "res/user-interface/hud/hud-player-toolbar.html"
+}

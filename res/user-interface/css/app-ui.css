@@ -1,0 +1,114 @@
+h1{
+    font-size: calc(min(5vh, 5vw));
+    margin: calc(min(1vh, 1vw));
+}
+p{
+    margin-top: calc(min(2vh, 2vw));
+    margin-bottom: 0;
+}
+div {
+  position: relative;
+}
+.flex_middle{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.button{
+    box-shadow: 
+        inset calc(min(0.4vh, 0.4vw)) calc(min(0.4vh, 0.4vw)) rgba(255, 255, 255, 0.5),
+        inset calc(min(-0.4vh, -0.4vw)) calc(min(-0.4vh, -0.4vw)) rgba(0, 0, 0, 0.5);
+    border-radius: calc(min(0.5vh, 0.5vw));
+    border: calc(min(0.4vh, 0.4vw)) solid #000000;
+    background-color: var(--colorButtonBackground);
+    margin: calc(min(1vh, 1vw));
+    padding: calc(min(1vh, 1vw));
+    cursor: pointer; /* Указываем, что элемент кликабельный */
+}
+.b-size-1{
+    width: calc(min(20.1vh, 20.1vw));
+}
+.b-size-2{
+    width: calc(min(45.0vh, 45.0vw));
+}
+
+.button:hover, 
+.button.hover-effect {
+    filter: brightness(1.3); /* Увеличиваем яркость на 20% */
+    transform: scale(1.02); /* Увеличиваем на 5% */
+}
+.center-child{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    text-shadow: calc(min(0.25vh, 0.25vw)) calc(min(0.4vh, 0.4vw)) rgba(0, 0, 0, 0.5);
+}
+
+.flex-raw{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+#appUIContainer{
+    font-size: calc(min(2.5vh, 2.5vw));
+}
+#menu_single_player, #menu_create_new_world{
+    background-image: url('/res/user-interface/image/background.png');
+    background-size: cover;
+    background-position: center;
+}
+#menu_escape{
+    background-color: rgba(0, 0, 0, 0.4);
+}
+.background{
+    background-color: rgba(0, 0, 0, 0.2);
+}
+#list{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    border-top: calc(min(0.4vh, 0.4vw)) solid #000000;
+    border-bottom: calc(min(0.4vh, 0.4vw)) solid #000000;
+    height: 500px;
+    overflow-y: scroll;
+    background-color: rgba(0, 0, 0, 0.5);
+    box-shadow:
+        inset 0px calc(min(2vh, 2vw)) calc(min(5vh, 5vw)) rgba(0, 0, 0, 0.5),
+        inset 0px calc(min(-2vh, -2vw)) calc(min(5vh, 5vw)) rgba(0, 0, 0, 0.5);
+}
+#list .item{
+    width: calc(min(90vh, 90vw));
+    padding: calc(min(1vh, 1vw));
+    margin: calc(min(0.6vh, 0.6vw));
+}
+#list .item canvas{
+    width: calc(min(20vh, 20vw));
+    height: calc(min(10vh, 10vw));
+    padding: calc(min(1vh, 1vw));
+    margin: calc(min(0.6vh, 0.6vw));
+    border: solid calc(min(0.4vh, 0.4vw)) black;
+}
+#list .selected{
+    background-color: rgba(0, 0, 0, 0.5);
+    outline: calc(min(0.4vh, 0.4vw)) solid var(--colorSlotBackground); /* Ширина и цвет рамки */
+    outline-offset: 0px; /* Отступ между рамкой и элементом */
+}
+.flex-top-center{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#menu_create_new_world #content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    
+}
+

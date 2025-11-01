@@ -1,0 +1,14 @@
+{
+    "pack": "colour",
+    "tags": [
+        "colour"
+    ],
+    "texture": "red",
+    "frame": "full",
+    "defaultMeta": 0,
+    "maxCountStack": 64,
+    "layers": [
+        1,
+        2
+    ]
+}

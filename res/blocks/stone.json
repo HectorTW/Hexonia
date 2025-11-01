@@ -1,0 +1,28 @@
+{
+    "pack": "base",
+    "type": "block",
+    "tags": [
+        "stone"
+    ],
+    "texture": "stone",
+    "frame": "full",
+    "defaultMeta": 0,
+    "maxCountStack": 64,
+    "layers": [
+        1,
+        2
+    ],
+    "break":{
+        "necessaryInstrumentLvl": "wood",
+        "bestToll": "pickaxe",
+        "endurance": 1000,
+        "drop": [
+            {
+                "chance": 100,
+                "id": "cobblestone",
+                "meta": null,
+                "count": 1
+            }
+        ]
+    }
+}

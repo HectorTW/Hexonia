@@ -1,0 +1,7 @@
+{
+    "pack": "base",
+    "type": "item",
+    "tags": ["apple", "food"],
+    "texture": "apple",
+    "maxCountStack": 64
+}

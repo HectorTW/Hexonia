@@ -1,0 +1,67 @@
+{
+    "camera-move-up": {
+        "keys": ["KeyW", "ArrowUp"],
+        "mouseButtons": [],
+        "wheelDirections": []
+    },
+    "camera-move-left": {
+        "keys": ["KeyA", "ArrowLeft"],
+        "mouseButtons": [],
+        "wheelDirections": []
+    },
+    "camera-move-down": {
+        "keys": ["KeyS", "ArrowDown"],
+        "mouseButtons": [],
+        "wheelDirections": []
+    },
+    "camera-move-right": {
+        "keys": ["KeyD", "ArrowRight"],
+        "mouseButtons": [],
+        "wheelDirections": []
+    },
+    "drag": {
+        "keys": ["KeyF"],
+        "mouseButtons": ["1"],
+        "wheelDirections": []
+    },
+    "camera-zoom-in": {
+        "keys": [],
+        "mouseButtons": [],
+        "wheelDirections": ["up"]
+    },
+    "camera-zoom-out": {
+        "keys": [],
+        "mouseButtons": [],
+        "wheelDirections": ["down"]
+    },
+    "open-inventory": {
+        "keys": ["KeyE"],
+        "mouseButtons": [],
+        "wheelDirections": []
+    },
+    "open-nei": {
+        "keys": ["KeyO"],
+        "mouseButtons": [],
+        "wheelDirections": []
+    },
+    "break-block": {
+        "keys": [],
+        "mouseButtons": ["0"],
+        "wheelDirections": []
+    },
+    "place-block": {
+        "keys": [],
+        "mouseButtons": ["2"],
+        "wheelDirections": []
+    },
+    "enter-key": {
+        "keys": ["Enter"],
+        "mouseButtons": [],
+        "wheelDirections": []
+    },
+    "escape": {
+        "keys": ["Escape"],
+        "mouseButtons": [],
+        "wheelDirections": []
+    }
+}

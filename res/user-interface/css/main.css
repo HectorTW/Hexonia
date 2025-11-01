@@ -1,0 +1,66 @@
+@font-face {
+    font-family: "minecraft";
+    src: url("minecraft.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+:root {
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    /* --slot-size: 60px;
+    --slot-gap: calc(min(0.4vh, 0.4vw)); */
+
+    --colorSlotBackground: #8b8b8b;
+    --colorUiBackground: #c6c6c6;
+    --colorButtonBackground: #707070;
+    --colorText: #e0e0e0;
+}
+body{
+    color: var(--colorText);
+    font-family: 'minecraft';
+    line-height: 1.5;
+    background-color: #242424;
+    padding: 0;
+    margin: 0;
+    overflow: hidden; /* Полосы прокрутки полностью скрыты */
+}
+#canvas-game{
+    position: absolute;
+    z-index: -1;
+}
+#canvas-selected{
+    position: absolute;
+    z-index: -1;
+}
+input {
+    border: 4px solid var(--colorSlotBackground);
+    background-color: black;
+    padding: 7px;
+    font: inherit;
+    color: inherit;
+    appearance: none;
+    /* margin: calc(min(1vh, 1vw)); */
+    outline: none;
+    width: 100%; 
+}
+input:focus {
+    caret-color: var(--colorSlotBackground);
+    /* caret-width: calc(min(0.2vh, 0.2vw)); */
+    animation: blink 1s step-end infinite;
+}
+*::-webkit-scrollbar {
+    height: 22px;
+    width: 22px;
+}
+*::-webkit-scrollbar-track {
+    border-radius: 0px;
+    background-color: #000000;
+}
+*::-webkit-scrollbar-thumb {
+    border-radius: 0px;
+    background-color: var(--colorSlotBackground);
+    box-shadow: inset -4px -4px rgba(0, 0, 0, 0.5);
+}

@@ -1,0 +1,25 @@
+{
+    "aer": "res/blocks/aer.json",
+    "base_core": "res/blocks/base_core.json",
+    "cobblestone": "res/blocks/cobblestone.json",
+    "dirt": "res/blocks/dirt.json",
+    "grass": "res/blocks/grass.json",
+    "stone": "res/blocks/stone.json",
+
+    "black": "res/blocks/colour/black.json",
+    "light_gray": "res/blocks/colour/light_gray.json",
+    "white": "res/blocks/colour/white.json",
+    "red": "res/blocks/colour/red.json",
+    "pink": "res/blocks/colour/pink.json",
+    "dark_brown": "res/blocks/colour/dark_brown.json",
+    "brown": "res/blocks/colour/brown.json",
+    "orange": "res/blocks/colour/orange.json",
+    "yellow": "res/blocks/colour/yellow.json",
+    "gray": "res/blocks/colour/gray.json",
+    "green": "res/blocks/colour/green.json",
+    "lime": "res/blocks/colour/lime.json",
+    "dark_gray": "res/blocks/colour/dark_gray.json",
+    "blue": "res/blocks/colour/blue.json",
+    "ligh_blue": "res/blocks/colour/ligh_blue.json",
+    "sky": "res/blocks/colour/sky.json"
+}

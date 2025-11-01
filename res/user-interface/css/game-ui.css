@@ -1,0 +1,235 @@
+#UIContainer{
+    z-index: 1;
+}
+#inventory{
+    background-color: rgba(0, 0, 0, 0.3);
+}
+.flex-container-row{
+    display: flex;
+    flex-direction: row;
+}
+.flex-container-column{
+    display: flex;
+    flex-direction: column;
+}
+.flex-container-center{
+    display: flex;
+    justify-content: center;
+}
+.flex-container-middle{
+    align-items: center;
+}
+.full-size{
+    height: 100vh;
+    width: 100vw;
+}
+.flex-1{
+    flex: 1;
+}
+.flex-0{
+    flex: 0;
+}
+
+inv-container{
+    pointer-events: none;
+    position: absolute;
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+}
+inv-position-tl{
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    height: 100vh;
+    width: 100vw;
+}
+inv-position-tc{
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+inv-position-tr{
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: end;
+    height: 100vh;
+    width: 100vw;
+}
+inv-position-cl{
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    height: 100vh;
+    width: 100vw;
+}
+inv-position-cc{
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+inv-position-cr{
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: end;
+    height: 100vh;
+    width: 100vw;
+}
+inv-position-bl{
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: start;
+    height: 100vh;
+    width: 100vw;
+}
+inv-position-bc{
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+inv-position-br{
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: end;
+    height: 100vh;
+    width: 100vw;
+}
+inv-background{
+    pointer-events: none;
+    margin: 6px;
+    display: flex;
+    border: 2px solid #242424;
+    padding: calc(2*var(--slot-gap));
+    border-radius: calc(2*var(--slot-gap));
+    background-color: var(--colorUiBackground);
+}
+inv-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    gap: var(--slot-gap);
+}
+inv-col{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    gap: var(--slot-gap);
+}
+inv-slot{
+    /* border: 1px solid #242424; */
+    pointer-events:all;
+    display: flex;
+    background-color: var(--colorSlotBackground);
+    border-radius: var(--slot-gap);
+    box-shadow: inset var(--slot-gap) var(--slot-gap) var(--slot-gap) rgba(0, 0, 0, 0.5);
+
+    width: var(--slot-size);
+    height: var(--slot-size);
+}
+inv-slot:hover {
+    outline: 3px solid #000000; /* Ширина и цвет рамки */
+    outline-offset: 0px; /* Отступ между рамкой и элементом */
+}
+
+inv-slot-invisible{
+    pointer-events:all;
+    /* background-color: var(--colorSlotBackground); */
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 1);
+    border-radius: 5px;
+    display: flex;
+    width: var(--slot-size);
+    height: var(--slot-size);
+}
+inv-slot-invisible:hover {
+    outline: 3px solid #000000; /* Ширина и цвет рамки */
+    outline-offset: 0px; /* Отступ между рамкой и элементом */
+}
+
+inv-slot-transparent{
+    pointer-events:none;
+    display: flex;
+    width: var(--slot-size);
+    height: var(--slot-size);
+}
+
+inv-button{
+    /* border: 1px solid #242424; */
+    pointer-events:all;
+    display: flex;
+    background-color: var(--colorSlotBackground);
+    border-radius: var(--slot-gap);
+}
+inv-button:hover {
+    outline: 3px solid #000000; /* Ширина и цвет рамки */
+    outline-offset: 0px; /* Отступ между рамкой и элементом */
+}
+
+.inv-size-tiny{
+    width: calc(0.50*var(--slot-size));
+    height: calc(0.50*var(--slot-size));
+}
+.inv-size-small{
+    width: calc(0.75*var(--slot-size));
+    height: calc(0.75*var(--slot-size));
+}
+.inv-size-normal{
+    width: calc(1.00*var(--slot-size));
+    height: calc(1.00*var(--slot-size));
+}
+.inv-size-big{
+    width: calc(1.5*var(--slot-size));
+    height: calc(1.5*var(--slot-size));
+}
+.inv-size-large{
+    width: calc(2.00*var(--slot-size));
+    height: calc(2.00*var(--slot-size));
+}
+
+#under_mouse_info {
+    transform: translate(0%, 0%);
+    position: absolute;
+    margin: 3px;
+    z-index: 1000;
+}
+#under_mouse_info_text {
+    transform: translateX(8px);
+
+    display: none;
+    position: absolute;
+    top: 0;
+    padding-top: 8px;
+    padding-right: 8px;
+    padding-left: 8px;
+    border-radius: 7px;
+    background-color: rgba(166, 166, 166, 0.91);
+    border: 1px solid #505050;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+
+    font-size: 18px;
+}
+
+
