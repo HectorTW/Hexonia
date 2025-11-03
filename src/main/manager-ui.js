@@ -10,7 +10,7 @@ class UiManager {
         this.activeButtonId = null;
         this.activeButtonAtr = null;
     }
-    async initialize(){
+    initialize(){
         console.log("%cAppUiManager :>> initialize", "background-color: green; font-weight: bold");
         
         this.UI_div = document.createElement("div");
@@ -33,6 +33,8 @@ class UiManager {
         this.UI_obj = null;
     }
     async update(){
+        if (!this.isActive) return
+
         if (window.app.game && window.app.game.isActive) {
             if (INPUT_MANAGER.is_action_just_pressed("escape")){
                 INPUT_MANAGER.reset_action_just_pressed("escape")

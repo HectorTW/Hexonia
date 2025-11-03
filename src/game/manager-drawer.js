@@ -1,5 +1,5 @@
 import { RESOURCES_MANAGER } from "/src/main/manager-resources.js"
-import { HEX_PROP_MANAGER } from "/src/main/manager-hexProp.js"
+import { HEX_PROP_MANAGER} from "/src/main/manager-hexProp.js"
 import { SETINGS_MANAGER } from "/src/main/manager-setings.js"
 
 import { ACTIONS_MANAGER } from "/src/game/manager-actions.js"
@@ -18,7 +18,7 @@ export class drawerManager {
         this.minChunk = null;
         this.minChunkGlobal = null;
 
-        this.chunkMeshs = {};
+        this.chunk_mesh_container = {};
         this.receivedChunksList = {};
         this.entitys = [];
 
@@ -39,8 +39,33 @@ export class drawerManager {
         this.ctx_offScreenShadow = this.canvas_offScreenShadow.getContext("2d");
         this.ctx_offScreenShadowTime = this.canvas_offScreenShadowTime.getContext("2d");
 
-        this.resizeAllCanvases();
-        this.checkViewDistance();
+        this.resize_all_canvas();
+        this.check_view_distance();
+    }
+    close(){
+        this.frames_per_second = null;
+        this.frames_per_second_count = null
+        this.last_sekond_time = null;
+
+        this.minChunk = null;
+        this.minChunkGlobal = null;
+
+        this.chunk_mesh_container = null;
+        this.receivedChunksList = null;
+        this.entitys = null;
+
+        this.canvas_game.remove()
+        this.canvas_selected.remove()
+
+        this.canvas_offScreen.remove();
+        this.canvas_offScreenShadow.remove();
+        this.canvas_offScreenShadowTime.remove();
+        
+        this.ctx_game = null;
+        this.ctx_selected = null;
+        this.ctx_offScreen = null;
+        this.ctx_offScreenShadow = null;
+        this.ctx_offScreenShadowTime = null;
     }
     clear(ctx, canvas){
         ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -58,7 +83,7 @@ export class drawerManager {
 
         // draw chunks from receivedChunksList
         for (const chunkName in this.receivedChunksList) {
-            const chunkMesh = this.chunkMeshs[chunkName];
+            const chunkMesh = this.chunk_mesh_container[chunkName];
             if (!chunkMesh) continue
             chunkMesh.drawChunk(this.receivedChunksList[chunkName]);
         }
@@ -81,11 +106,11 @@ export class drawerManager {
         const minChunkY = this.minChunk.y;
         const cameraScale = CAMERA_MANAGER.scale;
         const leftCornerLocalCoord = COORD_FACTORY.create_chunk(minChunkX, minChunkY).toGlobal().toLocal();
-        const x = leftCornerLocalCoord.x - cameraScale * HEX_PROP_MANAGER .hexRatio / 2;
+        const x = leftCornerLocalCoord.x - cameraScale * HEX_PROP_MANAGER.hexRatio / 2;
         const y = leftCornerLocalCoord.y - cameraScale / 2;
 
         // 0 Layer
-        const chunkMeshes = this.chunkMeshs;
+        const chunkMeshes = this.chunk_mesh_container;
         for (const name in chunkMeshes) {
             const mesh = chunkMeshes[name];
             const coord = mesh.chunk_coord;
@@ -149,8 +174,8 @@ export class drawerManager {
         ctxGame.drawImage(this.canvas_offScreen, 0, 0, window.innerWidth, window.innerHeight);
 
         //РАМКА
-        const scaleRatio = cameraScale / HEX_PROP_MANAGER .hexHeightInPixels;
-        const framePoints = HEX_PROP_MANAGER .framePoint;
+        const scaleRatio = cameraScale / HEX_PROP_MANAGER.hexHeightInPixels;
+        const framePoints = HEX_PROP_MANAGER.framePoint;
         const coord3 = ACTIONS_MANAGER.mouse_hex_coord.toGlobal().toLocal();
         ctxSelected.beginPath();
 
@@ -179,20 +204,19 @@ export class drawerManager {
             this.hexHeightInPixels * scale
         )
     }
-
-    checkViewDistance(){
+    check_view_distance(){
         // scaleConstant
         const cameraScale = CAMERA_MANAGER.scale;
-        this.chunkWidth = HEX_PROP_MANAGER .chunkWidthInPixels * cameraScale / HEX_PROP_MANAGER .hexHeightInPixels;
-        this.chunkHeight = HEX_PROP_MANAGER .chunkHeightInPixels * cameraScale / HEX_PROP_MANAGER .hexHeightInPixels;
-        this.chunkWidthShadow = (HEX_PROP_MANAGER .chunkWidthInPixels + HEX_PROP_MANAGER .hexWidthInPixels) * cameraScale / HEX_PROP_MANAGER .hexHeightInPixels;
-        this.chunkHeightShadow = (HEX_PROP_MANAGER .chunkHeightInPixels + HEX_PROP_MANAGER .hexHeightInPixels) * cameraScale / HEX_PROP_MANAGER .hexHeightInPixels;
-        const chunkDepth = HEX_PROP_MANAGER .chunkDepth;
-        this.xMultiplier = HEX_PROP_MANAGER .hexWidthInPixels * chunkDepth * cameraScale / HEX_PROP_MANAGER .hexHeightInPixels;
-        this.yMultiplier = HEX_PROP_MANAGER .hexHeightInPixels * chunkDepth * 0.75 * cameraScale / HEX_PROP_MANAGER .hexHeightInPixels;
+        this.chunkWidth = HEX_PROP_MANAGER.chunkWidthInPixels * cameraScale / HEX_PROP_MANAGER.hexHeightInPixels;
+        this.chunkHeight = HEX_PROP_MANAGER.chunkHeightInPixels * cameraScale / HEX_PROP_MANAGER.hexHeightInPixels;
+        this.chunkWidthShadow = (HEX_PROP_MANAGER.chunkWidthInPixels + HEX_PROP_MANAGER.hexWidthInPixels) * cameraScale / HEX_PROP_MANAGER.hexHeightInPixels;
+        this.chunkHeightShadow = (HEX_PROP_MANAGER.chunkHeightInPixels + HEX_PROP_MANAGER.hexHeightInPixels) * cameraScale / HEX_PROP_MANAGER.hexHeightInPixels;
+        const chunkDepth = HEX_PROP_MANAGER.chunkDepth;
+        this.xMultiplier = HEX_PROP_MANAGER.hexWidthInPixels * chunkDepth * cameraScale / HEX_PROP_MANAGER.hexHeightInPixels;
+        this.yMultiplier = HEX_PROP_MANAGER.hexHeightInPixels * chunkDepth * 0.75 * cameraScale / HEX_PROP_MANAGER.hexHeightInPixels;
 
-        this.hexWidthInPixels = HEX_PROP_MANAGER .hexWidthInPixels * cameraScale / HEX_PROP_MANAGER .hexHeightInPixels;
-        this.hexHeightInPixels = HEX_PROP_MANAGER .hexHeightInPixels * cameraScale / HEX_PROP_MANAGER .hexHeightInPixels;
+        this.hexWidthInPixels = HEX_PROP_MANAGER.hexWidthInPixels * cameraScale / HEX_PROP_MANAGER.hexHeightInPixels;
+        this.hexHeightInPixels = HEX_PROP_MANAGER.hexHeightInPixels * cameraScale / HEX_PROP_MANAGER.hexHeightInPixels;
 
         const centerX = CAMERA_MANAGER.center_chunk_coord.x;
         const centerY = CAMERA_MANAGER.center_chunk_coord.y;
@@ -205,8 +229,8 @@ export class drawerManager {
         for (let x = addMinX; x < addMaxX; x++) {
             for (let y = addMinY; y < addMaxY; y++) {
                 const chunkCoordName = x + "," + y;
-                if (!(chunkCoordName in this.chunkMeshs)) {
-                    this.chunkMeshs[chunkCoordName] = new ChunkMesh(COORD_FACTORY.create_chunk(x, y), this);
+                if (!(chunkCoordName in this.chunk_mesh_container)) {
+                    this.chunk_mesh_container[chunkCoordName] = new ChunkMesh(COORD_FACTORY.create_chunk(x, y), this);
                     WORKER_MANAGER.postMessage( 
                         "get_chunk_data",
                         {"chunk_coord_name": x + "," + y} 
@@ -221,22 +245,22 @@ export class drawerManager {
         const removeMaxX = centerX + removeDist;
         const removeMinY = centerY - removeDist;
         const removeMaxY = centerY + removeDist;
-        for (const chunkCoordName in this.chunkMeshs) {
-            const coord = this.chunkMeshs[chunkCoordName].getChunkCoord();
+        for (const chunkCoordName in this.chunk_mesh_container) {
+            const coord = this.chunk_mesh_container[chunkCoordName].getChunkCoord();
             if (
                 coord.x < removeMinX ||
                 coord.x > removeMaxX ||
                 coord.y < removeMinY ||
                 coord.y > removeMaxY
             ) {
-                delete this.chunkMeshs[chunkCoordName];
+                delete this.chunk_mesh_container[chunkCoordName];
             }
         }
 
         this.minChunk = COORD_FACTORY.create_chunk(removeMinX, removeMinY);
         this.minChunkGlobal = this.minChunk.toGlobal;
     }
-    resizeAllCanvases(){
+    resize_all_canvas(){
         this.canvas_game.width = window.innerWidth;
         this.canvas_game.height = window.innerHeight;
         this.canvas_selected.width = window.innerWidth;

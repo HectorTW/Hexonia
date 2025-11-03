@@ -20,7 +20,7 @@ export class UiOptions {
                 console.log('Ещё не готово :>> ');
             },
             "save_and_quit_button": async () => {
-                await window.app.saveAndQuit()
+                await GAME_MANAGER.close()
             },
         },
         this.buttonsNavigator = {

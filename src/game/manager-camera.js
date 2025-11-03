@@ -10,6 +10,14 @@ class CameraManager {
         this.min_scale = 5;
         this.speed_factor = 8;
         this.zoom_factor = 1.10;
+
+        this.scale = null;
+        this.speed = null;
+        
+        this.center_global_coord = null;
+        this.center_chunk_coord = null;
+        this.center_hex_coord = null;
+        this.global_coord = null;
     }
     
     initialize(){
@@ -23,6 +31,16 @@ class CameraManager {
         
         this.global_coord = COORD_FACTORY.create_global(0,0);
         this.check_center_chunk_coord();
+    }
+    close(){
+        this.scale = null;
+        this.speed = null;
+
+        this.center_global_coord = null;
+        this.center_chunk_coord = null;
+        this.center_hex_coord = null;
+        this.global_coord = null;
+
     }
     
     check_center_chunk_coord(){
@@ -51,7 +69,7 @@ class CameraManager {
         if (!has_resized && !has_moved && !has_zoomed) return;
 
         if (this.check_center_chunk_coord() || has_zoomed) {
-            DRAWER_MANAGER.checkViewDistance();
+            DRAWER_MANAGER.check_view_distance();
             WORKER_MANAGER.postMessage(
                 "send_camera_coord",
                 {"camera_center_chunk_coord": this.center_chunk_coord} 

@@ -32,8 +32,7 @@ class Resources {
     }
 
     async initialize(object) {
-        console.log("%cResources :>> initialize", "background-color: green; font-weight: bold");
-        console.group("%cResources :>> stat", "color: green");
+        console.group("%cResources :>> initialize", "background-color: green; font-weight: bold");
         if (object.control_setings){
             this.control_setings = await this.loadFiles(
                 await this.loadFile(

@@ -1,4 +1,4 @@
-import { APPLICATION_MANAGER } from "/src/main/Application.js"
+import { GAME_MANAGER } from "/src/game/manager-game.js"
 import { UI_MANAGER } from "/src/main/manager-ui.js"
 
 import { SaveDataBase } from "/src/worker/manager-saveDB.js"
@@ -15,12 +15,12 @@ export class UiSinglePlayer {
                 UI_MANAGER.activeMenuObject.selected_world_name_dev = worldDevName;
             },
             "play_selected_world_button": async () => {
-                await APPLICATION_MANAGER.startGame(UI_MANAGER.activeMenuObject.selected_world_name_dev);
+                await GAME_MANAGER.start(UI_MANAGER.activeMenuObject.selected_world_name_dev);
             },
             "create_new_world_menu_button": () => {
                 UI_MANAGER.openUi("menu_create_new_world");
-                document.querySelector("#menu_create_new_world #world_name").innerHTML = `
-                <input id="world_name_input" type="text" style="width: calc(min(45.0vh, 45.0vw));" autocomplete="off" value="${"New World"}">`
+                document.querySelector("#menu_create_new_world #world_name").innerHTML = 
+                `<input id="world_name_input" type="text" style="width: calc(min(45.0vh, 45.0vw));" autocomplete="off" value="${"New World"}">`
                 const input = document.getElementById('world_name_input')
                 input.focus();
                 input.setSelectionRange(input.value.length, input.value.length);

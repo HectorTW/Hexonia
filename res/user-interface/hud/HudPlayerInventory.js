@@ -7,10 +7,23 @@ export class HudPlayerInventory extends Hud {
     onStart(){
         const item = this.hud_div.querySelector("#player_inventory_name");
         if (item) item.innerHTML = ` Inventory`;
+
+        this.hud_div.querySelector("#close").addEventListener("onclick", () => {
+            console.log('Hello :>> ');
+            this.remove();
+        })
     };
     onUpdate(){
         super.onUpdate();
+        // close button
+        const top_element = INPUT_MANAGER.topElement;
+        if (top_element?.getAttribute("type") === "button") {
+            if (INPUT_MANAGER.is_action_just_pressed("break-block")) {
+                if (top_element.id == "close") this.remove();
+            }
+        }
 
+        
         const info = this.hud_div.querySelector("#under_mouse_info");
         const info_text = this.hud_div.querySelector("#under_mouse_info_text");
 

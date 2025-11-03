@@ -1,4 +1,5 @@
 import { APPLICATION_MANAGER } from "/src/main/Application.js"
+import { GAME_MANAGER } from "/src/game/manager-game.js"
 import { UI_MANAGER } from "/src/main/manager-ui.js"
 
 export class UiStart {
@@ -6,7 +7,7 @@ export class UiStart {
         this.onClick = {
             "qick_start_button": async () => {
                 const newWorldDevName = await APPLICATION_MANAGER.createNewWorld("New World");
-                await APPLICATION_MANAGER.startGame(newWorldDevName);
+                await GAME_MANAGER.start(newWorldDevName);
             },
             "single_player_menu_button": () => {
                 UI_MANAGER.openUi("UiSinglePlayer");

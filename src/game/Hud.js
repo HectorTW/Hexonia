@@ -16,7 +16,7 @@ export class Hud {
     onDraw(){}
     onUpdate(){};
     remove(){
-        this.hud_div.remove()
+        this.hud_div.remove();
         HUD_MANAGER.removeHud(this.hud_id);
     };
     drawItems(){

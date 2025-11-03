@@ -6,9 +6,9 @@ import { COORD_FACTORY } from "/src/game/grid.js"
 export class ActionsManager {
     constructor (){}
     initialize(){
+        this.mouse_global_coord = COORD_FACTORY.create_global(0,0);
         this.mouse_local_coord = COORD_FACTORY.create_local(0,0);
         this.mouse_hex_coord = COORD_FACTORY.create_hex(0,0);
-        this.mouse_global_coord = COORD_FACTORY.create_global(0,0);
     }
     update(){
         if (INPUT_MANAGER.topElement?.id !== "canvas-selected") return;
@@ -35,7 +35,12 @@ export class ActionsManager {
             //     hex_coord: this.mouse_hex_coord,
             // })
         }
-    }    
+    }
+    close(){
+        this.mouse_global_coord = null;
+        this.mouse_local_coord = null;
+        this.mouse_hex_coord = null;
+    }
 }
 
 export const ACTIONS_MANAGER = new ActionsManager();

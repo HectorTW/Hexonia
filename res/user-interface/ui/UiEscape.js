@@ -21,7 +21,7 @@ export class UiEscape {
                 console.log('Ещё не готово :>> ');
             },
             "save_and_quit_button": async () => {
-                await APPLICATION_MANAGER.saveAndQuit()
+                await GAME_MANAGER.close()
             },
         },
         this.buttonsNavigator = {
