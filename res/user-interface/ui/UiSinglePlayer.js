@@ -15,7 +15,7 @@ export class UiSinglePlayer {
                 UI_MANAGER.activeMenuObject.selected_world_name_dev = worldDevName;
             },
             "play_selected_world_button": async () => {
-                await GAME_MANAGER.start(UI_MANAGER.activeMenuObject.selected_world_name_dev);
+                await GAME_MANAGER.initialize(UI_MANAGER.activeMenuObject.selected_world_name_dev);
             },
             "create_new_world_menu_button": () => {
                 UI_MANAGER.openUi("menu_create_new_world");

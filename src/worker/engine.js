@@ -5,7 +5,7 @@ import { ID_MANAGER } from '/src/main/manager-id.js';
 import { World } from "/src/worker/world.js"
 import { Hero } from "/src/worker/hero.js"
 
-import { HexCoord, ChunkCoord } from "/src/game/grid.js"
+import { COORD_FACTORY } from "/src/grid/coord-factory.js"
 
 export class Engine {
     constructor (worker){
@@ -22,7 +22,7 @@ export class Engine {
     }
     async init(){
         this.world = new World();
-        this.heroes.push(new Hero(new HexCoord(10, 10)));
+        this.heroes.push(new Hero(COORD_FACTORY.create_hex(10, 10)));
         await this.checkLoadChunks(true);
         this.world.setBlock(3, 3, 1, ID_MANAGER.get_block_id("base:base_core"));
         this.tick = setInterval(this.update, 10);

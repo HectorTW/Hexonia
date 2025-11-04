@@ -4,15 +4,13 @@ import { INPUT_MANAGER } from "/src/main/manager-input.js"
 import { ID_MANAGER } from "/src/main/manager-id.js"
 import { UI_MANAGER } from "/src/main/manager-ui.js"
 
-import { WORKER_MANAGER } from "/src/game/manager-worker.js"
-import { DRAWER_MANAGER } from "/src/game/manager-drawer.js"
 import { GAME_MANAGER } from "/src/game/manager-game.js"
 
 import { SaveDataBase } from "/src/worker/manager-saveDB.js"
 
 class Application {
     constructor (){
-        this.appTick = null;
+        this.tick = null;
     }
     async initialize(){
         console.log("%cApplication :>> initialize", "background-color: green; font-weight: bold");
@@ -35,7 +33,7 @@ class Application {
         await UI_MANAGER.UI_obj.onClick["qick_start_button"]();
         // DEBUG //
 
-        this.appTick = setInterval(this.doMainTick, 10)
+        this.tick = setInterval(this.doMainTick, 10)
     }
 
     doMainTick = () => {
@@ -58,9 +56,11 @@ class Application {
         DB.setItem("info", "user-world-name", user_world_name);
         return dev_world_name;
     };
+
     async deleteWorld(world_name_dev){
         indexedDB.deleteDatabase(world_name_dev);
     }
+    
     async deleteAllWorlds(){
         (await indexedDB.databases())
             .filter(obj => obj.name.startsWith("save:"))

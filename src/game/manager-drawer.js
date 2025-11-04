@@ -1,11 +1,12 @@
 import { RESOURCES_MANAGER } from "/src/main/manager-resources.js"
 import { HEX_PROP_MANAGER} from "/src/main/manager-hexProp.js"
 import { SETINGS_MANAGER } from "/src/main/manager-setings.js"
+import { INPUT_MANAGER } from "/src/main/manager-input.js"
 
 import { ACTIONS_MANAGER } from "/src/game/manager-actions.js"
 import { WORKER_MANAGER } from "/src/game/manager-worker.js"
 import { CAMERA_MANAGER } from "/src/game/manager-camera.js"
-import { COORD_FACTORY } from "/src/game/grid.js"
+import { COORD_FACTORY } from "/src/grid/coord-factory.js"
 import { ChunkMesh } from "/src/game/ChunkMesh.js"
 
 export class drawerManager {
@@ -67,10 +68,15 @@ export class drawerManager {
         this.ctx_offScreenShadow = null;
         this.ctx_offScreenShadowTime = null;
     }
+    get_screenshot = () => this.canvas_game.toDataURL("image/png");
     clear(ctx, canvas){
         ctx.clearRect(0, 0, canvas.width, canvas.height);
     }
     update(){
+        if (INPUT_MANAGER.is_window_resized()){
+            this.resize_all_canvas();
+            this.check_view_distance();
+        }
         const currentTime = performance.now();
         if (currentTime - this.last_sekond_time >= 1000) {
             this.frames_per_second = this.frames_per_second_count

@@ -12,7 +12,7 @@ class Game {
         this.isActive = false;
     }
     
-    async start(save_name){
+    async initialize(save_name){
         console.log('GAME :>> initialize');
         await WORKER_MANAGER.initialize(save_name);
         ACTIONS_MANAGER.initialize();
@@ -29,12 +29,13 @@ class Game {
 
     async close(){
         this.isActive = false;
+
         ACTIONS_MANAGER.close();
         CAMERA_MANAGER.close();
         DRAWER_MANAGER.close();
         HUD_MANAGER.close();
 
-        const preview_screenshot = DRAWER_MANAGER.canvas_game.toDataURL("image/png")
+        const preview_screenshot = DRAWER_MANAGER.get_screenshot();
         await WORKER_MANAGER.postMessageAndWait(
             "save_and_quit",
             {"preview_screenshot": preview_screenshot},
@@ -47,12 +48,6 @@ class Game {
     update(){
         if (!this.isActive) return
 
-        if (INPUT_MANAGER.is_window_resized()){
-            DRAWER_MANAGER.resize_all_canvas();
-            DRAWER_MANAGER.check_view_distance();
-            HUD_MANAGER.on_resize();
-        }
-
         ACTIONS_MANAGER.update();
         DRAWER_MANAGER.update();
         CAMERA_MANAGER.update();
@@ -63,6 +58,7 @@ class Game {
         if (!this.isActive) return;
         DRAWER_MANAGER.draw();
         HUD_MANAGER.draw();
+        
         setTimeout(this.draw,0)
     }
 

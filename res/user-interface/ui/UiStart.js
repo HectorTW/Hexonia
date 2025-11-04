@@ -7,7 +7,7 @@ export class UiStart {
         this.onClick = {
             "qick_start_button": async () => {
                 const newWorldDevName = await APPLICATION_MANAGER.createNewWorld("New World");
-                await GAME_MANAGER.start(newWorldDevName);
+                await GAME_MANAGER.initialize(newWorldDevName);
             },
             "single_player_menu_button": () => {
                 UI_MANAGER.openUi("UiSinglePlayer");

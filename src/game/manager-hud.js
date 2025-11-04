@@ -37,8 +37,8 @@ class HudManager {
 
         this.addHud("hud_game", "HudDebug");
         this.addHud("hud_game", "HudPlayerToolbar", 1);
-        this.addHud("hud_menu", "HudPlayerInventory", 1);
-        this.addHud("hud_menu", "HudNotEnoughItems");
+        this.addHud("hud_game", "HudPlayerInventory", 1);
+        // this.addHud("hud_menu", "HudNotEnoughItems");
     }
     close(){
         this.isActive = false;
@@ -90,6 +90,8 @@ class HudManager {
     draw(){}
     update(){
         if (!this.isActive) return
+        if (INPUT_MANAGER.is_window_resized()) this.on_resize();
+
         if (INPUT_MANAGER.is_action_just_pressed("open-inventory")) {
             this.isHudMenuOpen ? this.close_menu() : this.open_menu()
         }
@@ -143,7 +145,7 @@ class HudManager {
     }
 
     on_resize(){
-        this.slot_size = Math.min(Math.floor(Math.min(window.innerHeight, window.innerWidth) / 250) * 15, 50);
+        this.slot_size = Math.min(Math.floor(Math.min(window.innerHeight, window.innerWidth) / 250) * 15, 45);
         this.slot_gap = Math.min(Math.floor(Math.min(window.innerHeight, window.innerWidth) / 250) * 15, 3);
         document.documentElement.style.setProperty("--slot-size", this.slot_size + "px");
         document.documentElement.style.setProperty("--slot-gap", this.slot_gap + "px");
