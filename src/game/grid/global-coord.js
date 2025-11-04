@@ -2,8 +2,8 @@ import { HEX_PROP_MANAGER } from "/src/main/manager-hexProp.js"
 
 import { CAMERA_MANAGER } from "/src/game/manager-camera.js"
 
-import { LocalCoord } from "/src/grid/local-coord.js"
-import { HexCoord } from "/src/grid/hex-coord.js"
+import { LocalCoord } from "/src/game/grid/local-coord.js"
+import { HexCoord } from "/src/game/grid/hex-coord.js"
 
 export class GlobalCoord {
     constructor(x, y) {

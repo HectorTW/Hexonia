@@ -2,7 +2,7 @@ import { APPLICATION_MANAGER } from "/src/main/Application.js"
 
 import { ACTIONS_MANAGER } from "/src/game/manager-actions.js"
 import { DRAWER_MANAGER } from "/src/game/manager-drawer.js"
-import { COORD_FACTORY } from "/src/grid/coord-factory.js"
+import { COORD_FACTORY } from "/src/game/grid/coord-factory.js"
 import { Hud } from "/src/game/Hud.js"
 
 export class HudDebug extends Hud {

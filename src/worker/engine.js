@@ -5,7 +5,7 @@ import { ID_MANAGER } from '/src/main/manager-id.js';
 import { World } from "/src/worker/world.js"
 import { Hero } from "/src/worker/hero.js"
 
-import { COORD_FACTORY } from "/src/grid/coord-factory.js"
+import { COORD_FACTORY } from "/src/game/grid/coord-factory.js"
 
 export class Engine {
     constructor (worker){

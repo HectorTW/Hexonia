@@ -1,5 +1,5 @@
 import { APPLICATION_MANAGER } from "/src/main/Application.js"
-import { createInvSlotClass } from "/src/staf/inv-slot.js"
+import { createInvSlotClass } from "/src/game/item/inv-slot.js"
 
 customElements.define('inv-slot', createInvSlotClass());
 customElements.define('inv-slot-invisible', createInvSlotClass());

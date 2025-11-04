@@ -1,7 +1,7 @@
-import { GlobalCoord } from "/src/grid/global-coord.js"
-import { LocalCoord } from "/src/grid/local-coord.js"
-import { ChunkCoord } from "/src/grid/chunk-coord.js"
-import { HexCoord } from "/src/grid/hex-coord.js"
+import { GlobalCoord } from "/src/game/grid/global-coord.js"
+import { LocalCoord } from "/src/game/grid/local-coord.js"
+import { ChunkCoord } from "/src/game/grid/chunk-coord.js"
+import { HexCoord } from "/src/game/grid/hex-coord.js"
 
 export class COORD_FACTORY {
     static create_global = (x, y) => new GlobalCoord(x, y); 

@@ -1,5 +1,5 @@
 import { RESOURCES_MANAGER } from "/src/main/manager-resources.js"
-import { COORD_FACTORY } from "/src/grid/coord-factory.js"
+import { COORD_FACTORY } from "/src/game/grid/coord-factory.js"
 
 class Input {
     constructor() {}

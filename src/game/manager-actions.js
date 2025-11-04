@@ -1,7 +1,7 @@
 import { INPUT_MANAGER } from "/src/main/manager-input.js"
 
 import { WORKER_MANAGER } from "/src/game/manager-worker.js"
-import { COORD_FACTORY } from "/src/grid/coord-factory.js"
+import { COORD_FACTORY } from "/src/game/grid/coord-factory.js"
 
 export class ActionsManager {
     constructor (){}

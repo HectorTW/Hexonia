@@ -6,7 +6,7 @@ import { INPUT_MANAGER } from "/src/main/manager-input.js"
 import { ACTIONS_MANAGER } from "/src/game/manager-actions.js"
 import { WORKER_MANAGER } from "/src/game/manager-worker.js"
 import { CAMERA_MANAGER } from "/src/game/manager-camera.js"
-import { COORD_FACTORY } from "/src/grid/coord-factory.js"
+import { COORD_FACTORY } from "/src/game/grid/coord-factory.js"
 import { ChunkMesh } from "/src/game/ChunkMesh.js"
 
 export class drawerManager {

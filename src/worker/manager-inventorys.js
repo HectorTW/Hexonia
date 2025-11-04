@@ -1,6 +1,6 @@
 import { SAVE_DB_MANAGER } from "/src/worker/manager-saveDB.js"
 import { ObjectContainer } from "/src/staf/objectContainer.js"
-import { Inventory } from "/src/item/Inventory.js"
+import { Inventory } from "/src/game/item/Inventory.js"
 
 class Inventorys_manager{
     constructor(){

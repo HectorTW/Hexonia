@@ -1,4 +1,4 @@
-import { COORD_FACTORY } from "/src/grid/coord-factory.js"
+import { COORD_FACTORY } from "/src/game/grid/coord-factory.js"
 
 // Пример использования
 export class Hero {

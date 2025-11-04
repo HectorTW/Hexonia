@@ -1,7 +1,7 @@
 import { HEX_PROP_MANAGER} from "/src/main/manager-hexProp.js"
 
-import { GlobalCoord } from "/src/grid/global-coord.js"
-import { ChunkCoord } from "/src/grid/chunk-coord.js"
+import { GlobalCoord } from "/src/game/grid/global-coord.js"
+import { ChunkCoord } from "/src/game/grid/chunk-coord.js"
 
 export class HexCoord {
     constructor(x, y) {

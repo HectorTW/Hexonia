@@ -1,6 +1,6 @@
 import { CAMERA_MANAGER } from "/src/game/manager-camera.js"
 
-import { GlobalCoord } from "/src/grid/global-coord.js"
+import { GlobalCoord } from "/src/game/grid/global-coord.js"
 
 export class LocalCoord {
     constructor(x, y) {
