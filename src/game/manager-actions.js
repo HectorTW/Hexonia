@@ -3,7 +3,7 @@ import { INPUT_MANAGER } from "/src/main/manager-input.js"
 import { WORKER_MANAGER } from "/src/game/manager-worker.js"
 import { COORD_FACTORY } from "/src/game/grid/coord-factory.js"
 
-export class ActionsManager {
+class ActionsManager {
     constructor (){}
     initialize(){
         this.mouse_global_coord = COORD_FACTORY.create_global(0,0);

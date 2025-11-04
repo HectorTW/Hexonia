@@ -1,4 +1,4 @@
-import { Cell_item } from "/src/item/Cell_item.js"
+import { Cell_item } from "/src/game/item/Cell_item.js"
 
 export class Cell_item_nei extends Cell_item {
     drawCell(ctx, size) {

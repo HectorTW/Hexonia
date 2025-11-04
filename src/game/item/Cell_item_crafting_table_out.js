@@ -1,7 +1,6 @@
-import { Cell_item_crafting_table } from "/src/item/Cell_item_crafting_table.js"
+import { Cell_item_crafting_table } from "/src/game/item/Cell_item_crafting_table.js"
 
-export class Cell_item_crafting_table_out extends 
- {
+export class Cell_item_crafting_table_out extends Cell_item_crafting_table {
     leftMouseKeyClick() {
         const handCell = player.mouse.handCell
         const isInHand = handCell.isSlot()

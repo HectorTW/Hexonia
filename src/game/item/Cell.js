@@ -1,6 +1,6 @@
 import { RESOURCES_MANAGER } from '/src/main/manager-resources.js';
 import { ID_MANAGER } from '/src/main/manager-id.js';
-import { Slot } from "/src/item/Slot.js"
+import { Slot } from "/src/game/item/Slot.js"
 
 export class Cell {
     slot

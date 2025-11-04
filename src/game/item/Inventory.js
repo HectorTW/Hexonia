@@ -1,19 +1,19 @@
 import { RESOURCES_MANAGER } from "/src/main/manager-resources.js"
 import { ID_MANAGER } from '/src/main/manager-id.js';
 
-import { Cell_item_base } from "/src/item/Cell_item_base.js"
-import { Cell_item_cook_in_fuel } from "/src/item/Cell_item_cook_in_fuel.js"
-import { Cell_item_cook_in } from "/src/item/Cell_item_cook_in.js"
-import { Cell_item_cook_out } from "/src/item/Cell_item_cook_out.js"
-import { Cell_item_crafting_table_base } from "/src/item/Cell_item_crafting_table_base.js"
-import { Cell_item_crafting_table_out } from "/src/item/Cell_item_crafting_table_out.js"
-import { Cell_item_crafting_table } from "/src/item/Cell_item_crafting_table.js"
-import { Cell_item_hand } from "/src/item/Cell_item_hand.js"
-import { Cell_item_nei } from "/src/item/Cell_item_nei.js"
-import { Cell_item_out } from "/src/item/Cell_item_out.js"
-import { Cell_item } from "/src/item/Cell_item.js"
-import { Cell_liquid } from "/src/item/Cell_liquid.js"
-import { Cell } from "/src/item/Cell.js"
+import { Cell_item_base } from "/src/game/item/Cell_item_base.js"
+import { Cell_item_cook_in_fuel } from "/src/game/item/Cell_item_cook_in_fuel.js"
+import { Cell_item_cook_in } from "/src/game/item/Cell_item_cook_in.js"
+import { Cell_item_cook_out } from "/src/game/item/Cell_item_cook_out.js"
+import { Cell_item_crafting_table_base } from "/src/game/item/Cell_item_crafting_table_base.js"
+import { Cell_item_crafting_table_out } from "/src/game/item/Cell_item_crafting_table_out.js"
+import { Cell_item_crafting_table } from "/src/game/item/Cell_item_crafting_table.js"
+import { Cell_item_hand } from "/src/game/item/Cell_item_hand.js"
+import { Cell_item_nei } from "/src/game/item/Cell_item_nei.js"
+import { Cell_item_out } from "/src/game/item/Cell_item_out.js"
+import { Cell_item } from "/src/game/item/Cell_item.js"
+import { Cell_liquid } from "/src/game/item/Cell_liquid.js"
+import { Cell } from "/src/game/item/Cell.js"
 
 const CELL_CLASS_REGISTRY = {
     Cell_item_base,

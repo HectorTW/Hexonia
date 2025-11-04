@@ -9,7 +9,7 @@ import { CAMERA_MANAGER } from "/src/game/manager-camera.js"
 import { COORD_FACTORY } from "/src/game/grid/coord-factory.js"
 import { ChunkMesh } from "/src/game/ChunkMesh.js"
 
-export class drawerManager {
+class DrawerManager {
     constructor () {}
     initialize(){
         this.frames_per_second = 0;
@@ -290,4 +290,4 @@ export class drawerManager {
     }
 }
 
-export const DRAWER_MANAGER = new drawerManager();
+export const DRAWER_MANAGER = new DrawerManager();

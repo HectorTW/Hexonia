@@ -1,4 +1,4 @@
-import { Cell } from "/src/item/Cell.js"
+import { Cell } from "/src/game/item/Cell.js"
 
 export class Cell_item extends Cell {
     objectsEqual(obj1, obj2) {

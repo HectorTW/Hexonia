@@ -7,7 +7,7 @@ import { CAMERA_MANAGER } from "/src/game/manager-camera.js"
 import { WORKER_MANAGER } from "/src/game/manager-worker.js"
 import { HUD_MANAGER } from "/src/game/manager-hud.js"
 
-class Game {
+class GameManager {
     constructor() {
         this.isActive = false;
     }
@@ -65,4 +65,4 @@ class Game {
 
 }
 
-export const GAME_MANAGER = new Game();
+export const GAME_MANAGER = new GameManager();

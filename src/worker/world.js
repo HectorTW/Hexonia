@@ -1,4 +1,3 @@
-// import { SAVE_DB_MANAGER } from '/src/worker/manager-saveDB.js';
 import { INVENTORYS_MANAGER } from '/src/worker/manager-inventorys.js';
 import { RESOURCES_MANAGER } from '/src/main/manager-resources.js';
 import { ID_MANAGER } from '/src/main/manager-id.js';

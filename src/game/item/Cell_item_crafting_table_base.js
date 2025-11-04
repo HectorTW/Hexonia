@@ -1,4 +1,4 @@
-import { Cell_item_crafting_table } from "/src/item/Cell_item_crafting_table.js"
+import { Cell_item_crafting_table } from "/src/game/item/Cell_item_crafting_table.js"
 
 export class Cell_item_crafting_table_base extends Cell_item_crafting_table {
     leftMouseKeyClick() {

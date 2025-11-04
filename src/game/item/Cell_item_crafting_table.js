@@ -1,4 +1,4 @@
-import { Cell_item_base } from "/src/item/Cell_item_base.js"
+import { Cell_item_base } from "/src/game/item/Cell_item_base.js"
 
 export class Cell_item_crafting_table extends Cell_item_base {
     setCraftingResult() {
